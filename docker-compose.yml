@@ -1,1 +1,15 @@
-name: my-home-server 
+version: '3.8'
+
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    ports:
+      - "8080:80"
+    command: --noauth
+    volumes:
+      - nas_filebrowser_data:/srv
+    restart: always
+
+volumes:
+  nas_filebrowser_data:
